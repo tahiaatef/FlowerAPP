@@ -1,6 +1,9 @@
+
+
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/pages/register.dart';
 import 'package:flutter_application_6/shared/colors.dart';
 import 'package:flutter_application_6/shared/constant.dart';
 
@@ -50,7 +53,7 @@ class Login extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8))),
                 ),
                 child: Text(
-                  "sign in",
+                  "Log In",
                   style: TextStyle(fontSize: 19, color: Colors.white),
                 ),
               ),
@@ -62,9 +65,11 @@ class Login extends StatelessWidget {
                 children: [
                   Text("Don't have an account?", style: TextStyle(fontSize: 19)),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Register()));
+                    },
                     child:
-                        Text('Sign Up', style: TextStyle(color: Colors.black,fontSize: 18 , fontWeight: FontWeight.bold)),
+                        Text('Sign UP', style: TextStyle(color: Colors.black,fontSize: 18 , fontWeight: FontWeight.bold)),
                   )
                 ],
               )

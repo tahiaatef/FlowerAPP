@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_6/shared/colors.dart';
 
@@ -22,17 +24,39 @@ class Home extends StatelessWidget {
               accountName: Text("Sahil"),
               accountEmail: Text("sahil@.com")),
           ListTile(
-              title: Text("Home" , style: TextStyle(color:Color.fromARGB(255, 80, 40, 7),fontWeight: FontWeight.bold),), leading: Icon(Icons.home), onTap: () {}),
+              title: Text(
+                "Home",
+                style: TextStyle(
+                    color: Color.fromARGB(255, 80, 40, 7),
+                    fontWeight: FontWeight.bold),
+              ),
+              leading: Icon(Icons.home),
+              onTap: () {}),
           ListTile(
-              title: Text("My products",style: TextStyle(color:Color.fromARGB(255, 80, 40, 7),fontWeight: FontWeight.bold),),
+              title: Text(
+                "My products",
+                style: TextStyle(
+                    color: Color.fromARGB(255, 80, 40, 7),
+                    fontWeight: FontWeight.bold),
+              ),
               leading: Icon(Icons.shopping_basket_rounded),
               onTap: () {}),
           ListTile(
-              title: Text("About",style: TextStyle(color:Color.fromARGB(255, 80, 40, 7),fontWeight: FontWeight.bold),),
+              title: Text(
+                "About",
+                style: TextStyle(
+                    color: Color.fromARGB(255, 80, 40, 7),
+                    fontWeight: FontWeight.bold),
+              ),
               leading: Icon(Icons.help_center),
               onTap: () {}),
           ListTile(
-              title: Text("Logout",style: TextStyle(color:Color.fromARGB(255, 80, 40, 7),fontWeight: FontWeight.bold),),
+              title: Text(
+                "Logout",
+                style: TextStyle(
+                    color: Color.fromARGB(255, 80, 40, 7),
+                    fontWeight: FontWeight.bold),
+              ),
               leading: Icon(Icons.exit_to_app),
               onTap: () {}),
           Container(
@@ -41,7 +65,10 @@ class Home extends StatelessWidget {
                 color: Colors.grey,
                 child: Text(
                   "Developed by Tahia Atef © 2024",
-                  style: TextStyle(fontSize: 16 , fontWeight: FontWeight.bold , color: Color.fromARGB(255, 80, 40, 7)),
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 80, 40, 7)),
                 ),
               ))
         ]),
@@ -97,6 +124,52 @@ class Home extends StatelessWidget {
             ],
           )
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 3 / 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 33),
+            itemCount: 4,
+            itemBuilder: (BuildContext context, int index) {
+              return GestureDetector(
+                onTap: () {},
+                child: GridTile(
+                  child: Container(
+                    margin: EdgeInsets.all(30),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage("assets/imgs/img1.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  footer: Container(
+                    margin: EdgeInsets.all(30),
+                      
+                    child: GridTileBar(
+                      backgroundColor: Color.fromARGB(255, 78, 47, 21),
+                      trailing: IconButton(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          iconSize: 30,
+                          onPressed: () {},
+                          icon: Icon(Icons.add)),
+                    
+                      leading: Text("\$12.99" , style: TextStyle(color: Colors.white,fontSize: 18),),
+                    
+                      title: Text(
+                        textAlign: TextAlign.center,
+                        "PHLOX",style: TextStyle(color: const Color.fromARGB(255, 219, 94, 48),fontSize: 18,fontWeight: FontWeight.bold)
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            }),
       ),
     ));
   }

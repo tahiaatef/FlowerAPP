@@ -1,10 +1,13 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/model/products.dart';
 import 'package:flutter_application_6/shared/colors.dart';
+
 
 class Home extends StatelessWidget {
   const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -130,10 +133,10 @@ class Home extends StatelessWidget {
         child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 3 / 2,
+                childAspectRatio: 3/3.5,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 33),
-            itemCount: 4,
+            itemCount: items.length,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
                 onTap: () {},
@@ -143,7 +146,7 @@ class Home extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
-                        image: AssetImage("assets/imgs/img1.jpg"),
+                        image: AssetImage(items[index].imgPath),
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -159,11 +162,11 @@ class Home extends StatelessWidget {
                           onPressed: () {},
                           icon: Icon(Icons.add)),
                     
-                      leading: Text("\$12.99" , style: TextStyle(color: Colors.white,fontSize: 18),),
+                      leading: Text("\$ ${items[index].price}" , style: TextStyle(color: Colors.white,fontSize: 18),),
                     
                       title: Text(
                         textAlign: TextAlign.center,
-                        "PHLOX",style: TextStyle(color: const Color.fromARGB(255, 219, 94, 48),fontSize: 18,fontWeight: FontWeight.bold)
+                        items[index].name,style: TextStyle(color: const Color.fromARGB(255, 154, 85, 59),fontSize: 18,fontWeight: FontWeight.bold)
                       ),
                     ),
                   ),

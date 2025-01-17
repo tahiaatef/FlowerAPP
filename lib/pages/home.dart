@@ -142,7 +142,7 @@ class Home extends StatelessWidget {
                 onTap: () {},
                 child: GridTile(
                   child: Container(
-                    margin: EdgeInsets.all(30),
+                    margin: EdgeInsets.only(left: 10, right: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       image: DecorationImage(
@@ -152,7 +152,7 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   footer: Container(
-                    margin: EdgeInsets.all(30),
+                    margin: EdgeInsets.only(left: 10, right: 10),
                       
                     child: GridTileBar(
                       backgroundColor: Color.fromARGB(255, 78, 47, 21),
@@ -165,8 +165,7 @@ class Home extends StatelessWidget {
                       leading: Text("\$ ${items[index].price}" , style: TextStyle(color: Colors.white,fontSize: 18),),
                     
                       title: Text(
-                        textAlign: TextAlign.center,
-                        items[index].name,style: TextStyle(color: const Color.fromARGB(255, 154, 85, 59),fontSize: 18,fontWeight: FontWeight.bold)
+                          ""
                       ),
                     ),
                   ),

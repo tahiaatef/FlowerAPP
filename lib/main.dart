@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_6/pages/home.dart';
+import 'package:flutter_application_6/pages/detailsScrean.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.light(useMaterial3: true),
-      home: Home(),
+      home:  DetailsScrean(),
     );
   }
 }

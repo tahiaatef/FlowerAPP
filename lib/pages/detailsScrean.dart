@@ -1,9 +1,15 @@
+// ignore_for_file: file_names, must_be_immutable
+
 import 'package:flutter/material.dart';
+import 'package:flutter_application_6/model/products.dart';
 import 'package:flutter_application_6/pages/home.dart';
 import 'package:flutter_application_6/shared/colors.dart';
 
 class DetailsScrean extends StatefulWidget {
-  const DetailsScrean({super.key});
+  Item product;
+  DetailsScrean({super.key, 
+    required this.product,
+  });
 
   @override
   State<DetailsScrean> createState() => _DetailsScreanState();
@@ -79,11 +85,11 @@ class _DetailsScreanState extends State<DetailsScrean> {
                   width: 900,
                   height: 300,
                   child: Image.asset(
-                    "assets/imgs/img1.jpg",
+                    widget.product.imgPath,
                     fit: BoxFit.cover,
                   )),
             ),
-            Text("\$ 200",
+            Text("\$ ${widget.product.price}",
                 style: TextStyle(
                     color: appbarGreen,
                     fontSize: 25,
@@ -148,7 +154,7 @@ class _DetailsScreanState extends State<DetailsScrean> {
                   width: 4,
                 ),
                 Text(
-                  "Egypt",
+                  widget.product.location,
                   style: TextStyle(color: appbarGreen, fontSize: 20),
                 )
               ]),
@@ -164,20 +170,22 @@ class _DetailsScreanState extends State<DetailsScrean> {
                   textAlign: TextAlign.start,
                 )),
             SizedBox(
-              height: 16,
+              height: 12,
             ),
-            Text(
-              "Roses are not only admired for their appearance but also for their role in expressing feelings. They are commonly given as gifts on special occasions like birthdays, anniversaries, and Valentine’s Day In gardens, roses add elegance and charm, attracting butterflies and bees, making the environment more vibrant. Truly, roses are a timeless symbol of beauty and love. 🌹",
-              style: TextStyle(fontSize: 18, color: maron),
-              maxLines: isshowmore ? 3 : null,
-              overflow: TextOverflow.fade,
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Roses are not only admired for their appearance but also for their role in expressing feelings. They are commonly given as gifts on special occasions like birthdays, anniversaries, and Valentine’s Day In gardens, roses add elegance and charm, attracting butterflies and bees, making the environment more vibrant. Truly, roses are a timeless symbol of beauty and love. 🌹",
+                style: TextStyle(fontSize: 18, color: maron),
+                maxLines: isshowmore ? 3 : null,
+                overflow: TextOverflow.fade,
+              ),
             ),
             TextButton(
                 onPressed: () {
                   setState(() {
-                    isshowmore = !isshowmore; 
+                    isshowmore = !isshowmore;
                   });
-                  
                 },
                 child: Text(isshowmore ? "Show more" : "Show less",
                     style: TextStyle(color: appbarGreen, fontSize: 20)))

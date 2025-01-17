@@ -1,9 +1,8 @@
-// ignore_for_file: sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_6/model/products.dart';
+import 'package:flutter_application_6/pages/detailsScrean.dart';
 import 'package:flutter_application_6/shared/colors.dart';
-
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -107,16 +106,16 @@ class Home extends StatelessWidget {
                     color: Colors.white,
                   ),
                   Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 242, 173, 120),
+                          shape: BoxShape.circle),
                       child: Text(
                         "8",
                         style: TextStyle(
                             fontSize: 14,
                             color: const Color.fromARGB(255, 128, 73, 18)),
-                      ),
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 242, 173, 120),
-                          shape: BoxShape.circle)),
+                      )),
                 ],
               ),
               Padding(
@@ -133,27 +132,23 @@ class Home extends StatelessWidget {
         child: GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 3/3.5,
+                childAspectRatio: 3 / 3.5,
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 33),
             itemCount: items.length,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
-                onTap: () {},
-                child: GridTile(
-                  child: Container(
-                    margin: EdgeInsets.only(left: 10, right: 10),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      image: DecorationImage(
-                        image: AssetImage(items[index].imgPath),
-                        fit: BoxFit.cover,
-                      ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsScrean(product: items[index]),
                     ),
-                  ),
+                  );
+                },
+                child: GridTile(
                   footer: Container(
                     margin: EdgeInsets.only(left: 10, right: 10),
-                      
                     child: GridTileBar(
                       backgroundColor: Color.fromARGB(255, 78, 47, 21),
                       trailing: IconButton(
@@ -161,11 +156,20 @@ class Home extends StatelessWidget {
                           iconSize: 30,
                           onPressed: () {},
                           icon: Icon(Icons.add)),
-                    
-                      leading: Text("\$ ${items[index].price}" , style: TextStyle(color: Colors.white,fontSize: 18),),
-                    
-                      title: Text(
-                          ""
+                      leading: Text(
+                        "\$ ${items[index].price}",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                      title: Text(""),
+                    ),
+                  ),
+                  child: Container(
+                    margin: EdgeInsets.only(left: 10, right: 10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        image: AssetImage(items[index].imgPath),
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
